@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@nestjs/cli": "^7.1.0",
+    "@nestjs/schematics": "^7.0.0",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.1",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
@@ -23,6 +25,13 @@
     "test": "run-p test:*",
     "test:build": "yarn build --noEmit",
     "test:jest": "yarn jest --detectOpenHandles --forceExit",
-    "test:lint": "eslint --ext .js,.ts --ignore-path .gitignore ."
+    "test:lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
+    "dev": "nest start --watch"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.0.6",
+    "@nestjs/core": "^7.0.6",
+    "@nestjs/platform-express": "^7.0.6",
+    "reflect-metadata": "^0.1.13"
   }
 }
