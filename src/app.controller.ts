@@ -23,7 +23,6 @@ export class AppController {
   }
 
   @Get("/transaction/:id")
-  @HttpCode(201)
   async getTx(@Param("id") id: string): Promise<{ transaction: Transaction }> {
     const transaction = await this.transactionRepository.fetch(id);
     return { transaction };
