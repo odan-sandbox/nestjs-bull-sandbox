@@ -21,6 +21,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: setup redis
+      run: |
+        docker-compose down -v
+        docker-compose up -d
+        ./bin/wait.sh
     - name: npm install, build, and test
       run: |
         yarn install --frozen-lockfile

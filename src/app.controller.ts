@@ -13,6 +13,12 @@ export class AppController {
     @Inject(TransactionRepository)
     private transactionRepository: TransactionRepository
   ) {}
+
+  @Get("/health")
+  health(): { ok: boolean } {
+    return { ok: true };
+  }
+
   @Post("/transaction")
   @HttpCode(201)
   async createTx(): Promise<{ transaction: Transaction }> {
