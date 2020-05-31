@@ -14,6 +14,6 @@ async function bootstrap(): Promise<void> {
   const configService = app.get(ConfigService);
   console.log(configService.get("REDIS_PORT"));
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

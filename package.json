@@ -31,7 +31,9 @@
     "test:build": "yarn build --noEmit",
     "test:jest": "yarn jest --detectOpenHandles --forceExit",
     "test:lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
-    "dev": "nest start --watch"
+    "dev": "run-p dev:*",
+    "dev:1": "PORT=3000 nest start --watch",
+    "dev:2": "PORT=3001 nest start --watch"
   },
   "dependencies": {
     "@nestjs/bull": "^0.1.0",
