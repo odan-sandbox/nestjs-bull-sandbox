@@ -1,5 +1,6 @@
 import { NestFactory } from "@nestjs/core";
 import { ConfigService } from "@nestjs/config";
+import morgan from "morgan";
 
 import { AppModule } from "./app.module";
 
@@ -10,6 +11,8 @@ process.on("unhandledRejection", reason => {
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
+
+  app.use(morgan("dev"));
 
   const configService = app.get(ConfigService);
   console.log(configService.get("REDIS_PORT"));

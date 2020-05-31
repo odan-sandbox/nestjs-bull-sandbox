@@ -13,7 +13,7 @@ export class TransactionProcessor {
   @Process()
   async process(job: Job<Transaction>): Promise<void> {
     const tx = job.data;
-    console.log("process", tx);
+    console.log("process", tx, process.env.PORT);
 
     await new Promise(resolve => {
       setTimeout(() => resolve(), 5000);
