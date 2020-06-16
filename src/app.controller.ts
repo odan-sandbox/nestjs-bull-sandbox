@@ -23,7 +23,7 @@ export class AppController {
   @HttpCode(201)
   async createTx(): Promise<{ transaction: Transaction }> {
     const transaction = new Transaction();
-    await this.transactionQueue.add(transaction);
+    await this.transactionQueue.add(transaction, { attempts: 10 });
     await this.transactionRepository.save(transaction);
     return { transaction };
   }
