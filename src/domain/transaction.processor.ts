@@ -18,6 +18,8 @@ export class TransactionProcessor extends BaseProcessor {
     const tx = job.data;
     console.log("process", tx, process.env.PORT);
 
+    console.log(await job.moveToFailed({ message: "poyo" }));
+
     await new Promise(resolve => {
       setTimeout(() => resolve(), 5000);
     });
