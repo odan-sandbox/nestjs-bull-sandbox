@@ -16,9 +16,7 @@ export class TransactionProcessor extends BaseProcessor {
   @Process()
   async process(job: Job<Transaction>): Promise<void> {
     const tx = job.data;
-    console.log("process", tx, process.env.PORT);
-
-    console.log(await job.moveToFailed({ message: "poyo" }));
+    console.log("process", tx, process.env.WORKER);
 
     await new Promise(resolve => {
       setTimeout(() => resolve(), 5000);
